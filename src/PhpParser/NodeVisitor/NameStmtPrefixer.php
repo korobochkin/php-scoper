@@ -148,6 +148,7 @@ final class NameStmtPrefixer extends NodeVisitorAbstract
 
         if ($this->prefix === $resolvedName->getFirst() // Skip if is already prefixed
             || $this->whitelist->belongsToWhitelistedNamespace((string) $resolvedName)  // Skip if the namespace node is whitelisted
+            || $this->whitelist->isSymbolWhitelisted((string) $resolvedName)
         ) {
             return $resolvedName;
         }
